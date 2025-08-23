@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Try Your Tools, Botnet, And C2 In Here</title>
+  <style>
+    :root {
+      --fg: #e5e7eb; --accent: #a78bfa;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body {
+      display: grid; place-items: center;
+      background: radial-gradient(circle at top, #6d28d9 0%, #0b0f17 70%);
+      color: var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      position: relative;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 6vw, 56px);
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .accent { color: var(--accent); }
+    .card {
+      padding: 32px 28px;
+      border: 1px solid #1f2937;
+      background: rgba(17,24,39,.6);
+      backdrop-filter: blur(6px);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      text-align: center;
+      max-width: 900px;
+      margin: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .stars {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+  <main class="card">
+    <h1><span class="accent">Try Your Tools, Botnet, And C2</span> In Here</h1>
+  </main>
+  <script>
+    // Generate stars dynamically
+    const starsContainer = document.getElementById('stars');
+    const numStars = 80;
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 3 + 1;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${1.5 + Math.random() * 2.5}s`;
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
